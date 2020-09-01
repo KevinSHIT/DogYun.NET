@@ -7,7 +7,7 @@ namespace DogYun
     public class Traffic
     {
         /// <summary>
-        /// Get One CVM Traffic.
+        /// Get CVM's Traffic.
         /// </summary>
         /// <param name="vmId"></param>
         /// <returns></returns>
@@ -33,11 +33,9 @@ namespace DogYun
         /// <summary>
         /// Get all your CVMs traffic.
         /// </summary>
-        /// <param name="vmId"></param>
         /// <returns></returns>
-        public Dictionary<int, List<Model.TrafficStruct>> GetCvmTrafficList(int vmId)
+        public Dictionary<int, List<Model.TrafficStruct>> GetCvmTrafficList()
         {
-            Helper.CheckCvmId(vmId);
             var x = Net.Http.Get(
                 $"https://api.dogyun.com/cvm/server/traffic",
                 Model.Configuration.Timeout
@@ -58,6 +56,12 @@ namespace DogYun
             }
             return d;
         }
+
+        /// <summary>
+        /// Get default CVM's Traffic.
+        /// </summary>
+        /// <returns></returns>
+        public List<Model.TrafficStruct> GetCvmTraffic() => GetCvmTraffic(Model.Configuration.CvmId);
 
 
         private Model.TrafficStruct GetTraffic(JObject jo)
