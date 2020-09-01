@@ -6,6 +6,11 @@ namespace DogYun
 {
     public class Traffic
     {
+        /// <summary>
+        /// Get One CVM Traffic.
+        /// </summary>
+        /// <param name="vmId"></param>
+        /// <returns></returns>
         public List<Model.TrafficStruct> GetCvmTraffic(int vmId)
         {
             Helper.CheckCvmId(vmId);
@@ -25,6 +30,11 @@ namespace DogYun
             return l;
         }
 
+        /// <summary>
+        /// Get all your CVMs traffic.
+        /// </summary>
+        /// <param name="vmId"></param>
+        /// <returns></returns>
         public Dictionary<int, List<Model.TrafficStruct>> GetCvmTrafficList(int vmId)
         {
             Helper.CheckCvmId(vmId);
