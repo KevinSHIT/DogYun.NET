@@ -9,5 +9,7 @@
         public System System = new System();
 
         public Vnc Vnc = new Vnc();
+
+        public Traffic Traffic = new Traffic();
     }
 }

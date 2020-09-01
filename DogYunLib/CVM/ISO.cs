@@ -40,8 +40,10 @@ namespace DogYun
         public bool Mount(int vmId, int isoNum)
         {
             Helper.CheckCvmId(vmId);
-            var data = new NameValueCollection();
-            data.Add("iso", isoNum.ToString());
+            var data = new NameValueCollection
+            {
+                { "iso", isoNum.ToString() }
+            };
             return Http.Put($"https://api.dogyun.com/cvm/server/{vmId}/cdrom/unmount", data, Configuration.Timeout).IsSuccess();
         }
     }
